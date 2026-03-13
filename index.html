@@ -63,13 +63,18 @@
         border-radius: 14px;
         border: 1px solid #e5ebea;
       }
-
+/* 
       table {
         width: 100%;
-        /* border-collapse: collapse; */
         min-width: 760px;
         background: #e2e2e2;
-      }
+      } */
+
+      table {
+          width: 100%;
+          background: #e2e2e2;
+          table-layout: fixed;
+        }
 
       th:nth-child(1) {
         width: 8%;
@@ -249,58 +254,68 @@
 
       @media (max-width: 768px) {
   .container {
-    padding: 18px;
+    padding: 12px;
     border-radius: 14px;
   }
 
   .header h1 {
-    font-size: 24px;
+    font-size: 22px;
   }
 
   .header p {
-    font-size: 14px;
+    font-size: 13px;
   }
 
   .table-wrapper {
-    overflow-x: visible;
-    border: none;
+    overflow-x: hidden;
   }
 
   table {
-    min-width: 100%;
     width: 100%;
-  }
-
-  thead {
-    display: none;
-  }
-
-  tbody,
-  tr,
-  td {
-    display: block;
-    width: 100%;
-  }
-
-  tr {
-    margin-bottom: 14px;
-    background: #e2e2e2;
-    border: 1px solid #e5ebea;
-    border-radius: 12px;
-    padding: 8px 0;
-  }
-
-  td {
-    padding: 10px 12px;
-    text-align: left;
+    table-layout: fixed;
   }
 
   th,
   td {
-    padding: 12px 10px;
+    padding: 8px 6px;
+    font-size: 11px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  th {
+    font-size: 12px;
+  }
+
+  .topic {
+    font-size: 11px;
+  }
+
+  details {
+    padding: 6px 8px;
+    border-radius: 14px;
+  }
+
+  summary {
+    font-size: 11px;
+  }
+
+  .details-content {
+    font-size: 10px;
+    line-height: 1.4;
+  }
+
+  .resource-btn {
+    padding: 6px 8px;
+    font-size: 10px;
+    border-radius: 8px;
+  }
+
+  .sl-btn {
+    padding: 6px 8px;
+    font-size: 11px;
   }
 }
-
 
 
     </style>
