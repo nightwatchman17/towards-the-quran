@@ -1,0 +1,613 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="../Photos/favicon-32x32.png" />
+    <title>&#8203;</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <style>
+      body {
+        font-family: "Noto Sans Bengali", sans-serif;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #070d1f, #441616);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        color: #1f2937;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 1100px;
+        background: #f3eeee;
+        border-radius: 18px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+        padding: 28px;
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 24px;
+      }
+
+      .header h1 {
+        font-size: 32px;
+        margin-bottom: 8px;
+        color: #111827;
+      }
+
+      .header p {
+        color: #6b7280;
+        font-size: 15px;
+      }
+
+      .table-wrapper {
+        width: 100%;
+        overflow-x: auto;
+        border-radius: 14px;
+        border: 1px solid #e5ebea;
+      }
+
+      table {
+        width: 100%;
+        /* border-collapse: collapse; */
+        min-width: 760px;
+        background: #e2e2e2;
+      }
+
+      th:nth-child(1) {
+        width: 8%;
+      } /* SL. column */
+      th:nth-child(2) {
+        width: 30%;
+      } /* Topic column */
+      th:nth-child(3) {
+        width: 45%;
+      } /* Details column */
+      th:nth-child(4) {
+        width: 17%;
+      }
+
+      thead {
+        background: #3b7009;
+        color: #ffffff;
+      }
+
+      th,
+      td {
+        padding: 16px 14px;
+        text-align: center;
+        vertical-align: top;
+      }
+
+      /* keep second column (topic) left-aligned */
+      th:nth-child(2),
+      td:nth-child(2) {
+        text-align: left;
+      }
+
+      th {
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: 0.2px;
+        border-bottom: 1px solid #e5e7eb;
+      }
+
+      td {
+        font-size: 14px;
+        color: #374151;
+      }
+
+      /* tbody tr:nth-child(even) {
+      background: #f9fafb;
+    } */
+
+      tbody tr:hover {
+        background: #bbb9b9;
+        transition: 0.2s ease;
+      }
+
+      .topic {
+        font-weight: 600;
+        color: #111827;
+      }
+
+      details {
+        background: #f8fafc;
+        border: 0.5px solid #dbeafe;
+        border-radius: 40px;
+        padding: 10px 10px;
+      }
+
+      summary {
+        cursor: pointer;
+        font-weight: 600;
+        color: #3b7009;
+        list-style: none;
+      }
+
+      summary:hover {
+        color: rgba(0, 0, 0, 0.735);
+      }
+
+      summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .details-content {
+        margin-top: 10px;
+        color: #000000;
+        line-height: 1.6;
+        font-size: 13px;
+      }
+
+      .resource-btn {
+        display: inline-block;
+        text-decoration: none;
+        background: #3b7009;
+        color: #ffffff;
+        padding: 10px 16px;
+        border-radius: 10px;
+        font-size: 13px;
+        font-weight: 600;
+        transition:
+          background 0.2s ease,
+          transform 0.2s ease;
+        align-items: center;
+      }
+
+      .resource-btn:hover {
+        background: #121f41;
+        transform: translateY(-1px);
+      }
+
+      .resource-btn::before {
+        content: "📄 ";
+      }
+
+      .sl-btn {
+        background: #3b7009;
+        color: #ffffff;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.2s ease;
+      }
+
+      .sl-btn:hover {
+        background: #121f41;
+        transform: translateY(1px);
+      }
+
+      /* .resource-btn.disabled {
+      background: #9ca3af;
+      pointer-events: none;
+      cursor: not-allowed;
+    } */
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 18px;
+          border-radius: 14px;
+        }
+
+        .header h1 {
+          font-size: 24px;
+        }
+
+        .header p {
+          font-size: 14px;
+        }
+
+        th,
+        td {
+          padding: 12px 10px;
+        }
+
+        table {
+          min-width: 680px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        body {
+          padding: 12px;
+        }
+
+        .container {
+          padding: 14px;
+        }
+
+        .header h1 {
+          font-size: 22px;
+        }
+
+        .header p {
+          font-size: 13px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Quranic Speedrun</h1>
+        <p>Learn the very basics to start recitation of the Quran <br>
+          (Collected from <i>Tahzib Institute</i>)</p>
+      </div>
+
+                  <div class="table-wrapper">
+                  <table>
+                  <thead>
+
+                  <tr>
+                  <th>SL.</th>
+                  <th>Topic</th>
+                  <th>Details</th>
+                  <th>Resources</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+
+                  <tr>
+                  <td>
+                  <a style="color: white; text-decoration: none"
+                  href="https://drive.google.com/file/d/1UQccS-n9YgQSbvknh0P0DE8keoB4z8s1/preview"
+                  target="_blank">
+                  <button class="sl-btn">1</button></a>
+                  </td>
+                  <td>
+                  <div class="topic">আরবী ২৯টি হরফ</div>
+                  <!-- <div class="desc">Core tags and page structure.</div> -->
+                  </td>
+                  <td>
+                  <details>
+                  <summary>>> Overview <<</summary>
+                  <div class="details-content"> সহজভাবে আরবী ২৯টি বর্ণের পরিচয় ও উচ্চারণ দেখানো হয়েছে। ভালভাবে প্রাকটিস করুন।
+                  </div>
+                  </details>
+                  </td>
+                  <td><a href="https://drive.google.com/file/d/1m71YPBjrTdQ5KCYwpo7O1yJP8n51sf4Q/preview" target="_blank" class="resource-btn">pdf </a></td>
+                  </tr>
+
+                  <tr>
+                  <td>
+                  <a style="color: white; text-decoration: none"
+                  href="https://drive.google.com/file/d/1UTcCzvsbZh7BZMtXFGSqSiVcM4WDvsMT/preview"
+                  target="_blank"><button class="sl-btn">2</button></a>
+                  </td>
+                  <td>
+                  <div class="topic">আরবী হরফসমূহ আত্বস্থকরন</div>
+                  </td>
+                  <td>
+                  <details>
+                  <summary>>> Overview <<</summary>
+                  <div class="details-content">
+                  এই লেসনে আপনারা আরবী হরফসমূহের কাছাকাছি দেখতে ও উচ্চারণের হরফগুলো গ্রপভিত্তিক দেখবেন। যেন হরফগুলো আরো ভালভাবে আয়ত্ত করা যায়।
+                  </div>
+                  </details>
+                  </td>
+                  <td><a href="https://drive.google.com/file/d/1X2P4boYxhgCbCVSP-gJvKR0M_N9bIhYV/preview" target="_blank" class="resource-btn">pdf </a></td>
+                  </tr>
+
+                  <tr>
+                  <td>
+                  <a style="color: white; text-decoration: none"
+                  href="https://drive.google.com/file/d/1GEW-qndOvaV9qxXF8gbsxcbw6-gCffDl/preview"
+                  target="_blank"><button class="sl-btn">3</button></a>
+                  </td>
+                  <td>
+                  <div class="topic">হরফসমূহের সংক্ষিপ্ত রূপ</div>
+                  </td>
+                  <td>
+                  <details>
+                  <summary>>> Overview <<</summary>
+                  <div class="details-content">আরবী ২৯ টি হরফের সংক্ষিপ্তরূপের ব্যবহার দেখানো হয়েছে। আরবী হরফগুলো মিলিয়ে আসলে কীভাবে থাকে সেটি জানতে পারবেন।
+                  </div>
+                  </details>
+                  </td>
+                  <td><a href="https://drive.google.com/file/d/1fdXFYXVhK3J9KdvYzaCGMHzgLNG4Lb0b/preview" target="_blank" class="resource-btn">pdf </a></td>
+                  </tr>
+
+                  <tr>
+                  <td>
+                  <a style="color: white; text-decoration: none"
+                  href="https://drive.google.com/file/d/1W70od4OvWmJJqmCNdK6WjuCugmrpVqjO/preview" target="_blank" ><button class="sl-btn">4</button></a>
+                  </td>
+                  <td>
+                  <div class="topic">হরকত (যবর, যের, পেশ)</div>
+                  </td>
+                  <td>
+                  <details>
+                  <summary>>> Overview <<</summary>
+                  <div class="details-content">আরবীতে এক যবর, এক যের, এক পেশকে হরকত বলে। হরকতের উচ্চারণ টান ছাড়া দ্রুত পড়তে হবে। বিস্তারিত ভিডিওটিতে দেখুন।
+                  </div>
+                  </details>
+                  </td>
+                  <td><a href="https://drive.google.com/file/d/1WOWC32ePd-r3kxIc0HS5Gu45li-TKYO1/preview" target="_blank" class="resource-btn">pdf </a></td>
+                  </tr>
+
+                  <tr>
+                  <td>
+                  <a style="color: white; text-decoration: none"
+                  href="https://drive.google.com/file/d/163oELJyfvBdOcRmTQW4pT3OXrrT7a5DR/preview"
+                  target="_blank"><button class="sl-btn">5</button></a>
+                  </td>
+                  <td>
+                  <div class="topic">তানবীন (দুই যবর, দুই যের ও দুই পেশ)</div>
+                  </td>
+                  <td>
+                  <details>
+                  <summary>>> Overview <<</summary>
+                  <div class="details-content">এই দারসে তানবীন (দুই যবর, দুই যের ও দুই যের) এর পরিচয়, ব্যবহার ও অনুশীলনী রয়েছে। তানবীনের উচ্চারণ টান ছাড়া দ্রুত পড়তে হবে। বিস্তারিত ভিডিওটিতে দেখুন।
+                  </div>
+                  </details>
+                  </td>
+                  <td><a href="https://drive.google.com/file/d/1_LqW_p-w5ND_xv3r_K5ATjqpQx1NxxWO/preview" target="_blank" class="resource-btn">pdf </a></td>
+                  </tr>
+
+                  <tr>
+                  <td>
+                  <a style="color: white; text-decoration: none"
+                  href="https://drive.google.com/file/d/1c5dMGiL2KqVMZssbItvTIvU14EaOWMCa/preview"
+                  target="_blank"><button class="sl-btn">6</button></a>
+                  </td>
+                  <td>
+                  <div class="topic">
+                  সুকুন বা জযমের পরিচয় ও ক্বলক্বলার ব্যবহার
+                  </div>
+                  </td>
+                  <td>
+                  <details>
+                  <summary>>> Overview <<</summary>
+                  <div class="details-content">সুকুনযুক্ত হরফকে পূর্বের হরফের সাথে মিলিয়ে পড়তে হয়। বিস্তারিত ভিডিওটিতে দেখুন এবং ভালভাবে প্রাকটিস করুন।
+                  </div>
+                  </details>
+                  </td>
+                  <td><a href="https://drive.google.com/file/d/1a8BsHDWZIwgmBuNth3BuebIWt1lhoCES/preview" target="_blank" class="resource-btn">pdf </a></td>
+                  </tr>
+
+                  <tr>
+                  <td>
+                  <a style="color: white; text-decoration: none"
+                  href="https://drive.google.com/file/d/18n3STFOa95tYZ36batfzXuaZuxWPT0Jf/preview"
+                  target="_blank"><button class="sl-btn">7</button></a>
+                  </td>
+                  <td>
+                  <div class="topic">তাশদীদ ও ওয়াজিব গুন্নাহ</div>
+                  </td>
+                  <td>
+                  <details>
+                  <summary>>> Overview <<</summary>
+                  <div class="details-content">এই দারসে তাশদিদ (দুইবার পড়া) এর পরিচয়, ব্যবহার ও অনুশীলনী রয়েছে। তাশদিদযুক্ত হরফ দুইবার পড়তে হয়, একবার পূর্বের হরকতের সাথে আরেকবার নিজ হরকতকে।</div>
+                  </details>
+                  </td>
+                  <td><a href="https://drive.google.com/file/d/1H280n5SRGqYpU9wEDfJj5bSKg5J1_tui/preview" target="_blank" class="resource-btn">pdf </a></td>
+                  </tr>
+
+                  <tr>
+                  <td>
+                  <a style="color: white; text-decoration: none"
+                  href="https://drive.google.com/file/d/1jO_4oehxFu61ni3Akdge1IW3jKr14aKI/preview"
+                  target="_blank">
+                  <button class="sl-btn">8</button>
+                  </a>
+                  </td>
+                  <td>
+                  <div class="topic">১ আলিফ মাদ</div>
+                  </td>
+                  <td>
+                  <details>
+                  <summary>>> Overview <<</summary>
+                  <div class="details-content">মাদের হরফ: যবরের পর খালি আলিফ, যেরের পর সুুকনযুক্ত ইয়া, পেশের পর সুকুনযুক্ত ওয়াও হলে এক আলিফ টেনে পড়তে হয়। মাদের হরকত: খাড়া যবর, খাড়া যের, উল্টা পেশকে মাদের হরকত বলে। এখানেও এক আলিফ টেনে পড়তে হবে।
+                  </div>
+                  </details>
+                  </td>
+                  <td>
+                  <a href="https://drive.google.com/file/d/1P84P18hMM8oOukERjPYl2Pj7wnHBd-qK/preview" target="_blank" class="resource-btn">pdf</a>
+                  </td>
+                  </tr>
+
+                  <tr>
+                  <td>
+                  <a style="color: white; text-decoration: none"
+                  href="https://drive.google.com/file/d/14OTQckNCrSOihHYa2caEoNSj2t_v6s6o/preview"
+                  target="_blank">
+                  <button class="sl-btn">9</button>
+                  </a>
+                  </td>
+                  <td>
+                  <div class="topic">১ আলিফ মাদ (২য় পর্ব)</div>
+                  </td>
+                  <td>
+                  <details>
+                  <summary>>> Overview <<</summary>
+                  <div class="details-content">এই দারসে এক আলিফ মাদের শেষ দু প্রকার মাদ্দে লীন ও মাদ্দে ইওয়াজ এর পরিচয়, ব্যবহার ও অনুশীলনী রয়েছে। মাদ্দে লীন: লীনের হরফের পর ওয়াক্বফ করলে এক আলিফ টেনে পড়তে হয়। মাদ্দে ইওয়াজ: দুই যবরের পর ওয়াক্বফ করলে এক আলিফ টেনে পড়তে হয়। উপরোক্ত দুটি নিয়ম কেবল থামলেই প্রযোজ্য হবে।
+                  </div>
+                  </details>
+                  </td>
+                  <td>
+                  <a href="https://drive.google.com/file/d/1ciJN47FwGqkZoP3Ag1eLiBCoZ6qD5Oux/preview" target="_blank" class="resource-btn">pdf</a>
+                  </td>
+                  </tr>
+
+                  <tr>
+                  <td>
+                  <a style="color: white; text-decoration: none"
+                  href="https://drive.google.com/file/d/1o8qpU4U7bqngZ8CmvlsZ0WslKh9bRl9H/preview"
+                  target="_blank">
+                  <button class="sl-btn">10</button>
+                  </a>
+                  </td>
+                  <td>
+                  <div class="topic">৩ আলিফ মাদ</div>
+                  </td>
+                  <td>
+                  <details>
+                  <summary>>> Overview <<</summary>
+                  <div class="details-content">তিন আলিফ মাদ মাত্র দুটি স্থানে হবে।মাদ্দে আরযি: মাদের হরফ বা মাদের হরকতের পরে ওয়াক্বফ করলে তিন আলিফ টেনে পড়তে হয়। মাদ্দে মুনফাসিল: একই শব্দে মাদের হরফ বা মাদের হরকতের পরে লম্বা হামযা থাকলে তিন আলিফ টেনে পড়তে হয়।
+                  </div>
+                  </details>
+                  </td>
+                  <td>
+                  <a href="https://drive.google.com/file/d/1701Bg8tfxhJsV1qFEzv8JqhpV6xJHDU_/preview" target="_blank" class="resource-btn">pdf</a>
+                  </td>
+                  </tr>
+
+                  <tr>
+                  <td>
+                  <a style="color: white; text-decoration: none"
+                  href="https://drive.google.com/file/d/1wKfk3MzkS4gTdqLg0QL5dpVwfTpxkVyb/preview"
+                  target="_blank">
+                  <button class="sl-btn">11</button>
+                  </a>
+                  </td>
+                  <td>
+                  <div class="topic">৪ আলিফ মাদ</div>
+                  </td>
+                  <td>
+                  <details>
+                  <summary>>> Overview <<</summary>
+                  <div class="details-content">এই দারসে চার আলিফ মাদের তিনটি প্রকার দেখানো হয়েছৈ। ভাল করে আয়ত্ত্ব করতে রেকর্ডটি দেখুন এবং প্রাকটিস করুন।
+                  </div>
+                  </details>
+                  </td>
+                  <td>
+                  <a href="https://drive.google.com/file/d/1PVXxexLqOLQL2l9AwMqsKo9XOGqlFFZv/preview" target="_blank" class="resource-btn">pdf</a>
+                  </td>
+                  </tr>
+
+                  <tr>
+                  <td>
+                  <a style="color: white; text-decoration: none"
+                  href="https://drive.google.com/file/d/1H97gvTFt9QXoqSikhvtfgxn9uUm_R8BU/preview"
+                  target="_blank" >
+                  <button class="sl-btn">12</button>
+                  </a>
+                  </td>
+                  <td>
+                  <div class="topic">নুন সাকিন ও তানবীনের পর গুন্নাহ</div>
+                  </td>
+                  <td>
+                  <details>
+                  <summary>>> Overview <<</summary>
+                  <div class="details-content">নুন সাকিন অথবা তানবীনের পর গুন্নাহ ছাড়া ৮টি হরফ থাকলে গুন্নাহ ছাড়া পড়তে হবে। বাকি হরফগুলো থাকলে গুন্নাহ করে পড়তে হবে। কোথাও গোপন করে (ইখফা), কোথাও মিলিয়ে (ইদগাম), কোথাও পরিবর্তন করে (ইক্বলাব) করে গুন্নাহ হবে।
+                  </div>
+                  </details>
+                  </td>
+                  <td>
+                  <a href="https://drive.google.com/file/d/1z37AlcmYgzJVzlfHTm-L_RwlQozyilGN/preview" target="_blank" class="resource-btn">pdf</a>
+                  </td>
+                  </tr>
+
+                  <tr>
+                  <td>
+                  <a style="color: white; text-decoration: none"
+                  href="https://drive.google.com/file/d/1li9J2DxPTYFZnDdtS0rYEY3a3rBnYfVw/preview"
+                  target="_blank">
+                  <button class="sl-btn">13</button>
+                  </a>
+                  </td>
+                  <td>
+                  <div class="topic">নুন সাকিন ও তানবীনের পর গুন্নাহ না করা</div>
+                  </td>
+                  <td>
+                  <details>
+                  <summary>>> Overview <<</summary>
+                  <div class="details-content">সংক্ষেপে: নুন সাকিন অথবা তানবীনের পর গুন্নাহ ছাড়া ৮টি হরফ থাকলে গুন্নাহ ছাড়া পড়তে হবে।
+                  </div>
+                  </details>
+                  </td>
+                  <td>
+                  <a href="https://drive.google.com/file/d/1mHRImhP8bmlxOXfXy0SS7Ukb3nGjztOj/preview" target="_blank" class="resource-btn">pdf</a>
+                  </td>
+                  </tr>
+
+                  <tr>
+                  <td>
+                  <a style="color: white; text-decoration: none"
+                  href="https://drive.google.com/file/d/1CQZnG_VZ6L_8J0-bk_fVt-uT2nGV9fpm/preview"
+                  target="_blank">
+                  <button class="sl-btn">14</button>
+                  </a>
+                  </td>
+                  <td>
+                  <div class="topic">মিম সাকিনের গুন্নাহ</div>
+                  </td>
+                  <td>
+                  <details>
+                  <summary>>> Overview <<</summary>
+                  <div class="details-content">মিম সাকিনের পর ‘বা’ অথবা ‘মিম’ থাকলে গুন্নাহ করে পড়তে হবে। এই দুটি হরফ ব্যাতীত অন্য কোনো হরফ থাকলে গুন্নাহ করতে হবে না।
+                  </div>
+                  </details>
+                  </td>
+                  <td>
+                  <a href="https://drive.google.com/file/d/1JgqYeaLWCdwvMv9jc4jsePOaqR_zhOOz/preview" target="_blank" class="resource-btn">pdf</a>
+                  </td>
+                  </tr>
+
+                  <tr>
+                  <td>
+                  <a
+                  style="color: white; text-decoration: none"
+                  href="https://youtu.be/1WTGnlWznXY?si=TbAC2UC93rT4gt2O"
+                  target="_blank"
+                  >
+                  <button class="sl-btn">15</button>
+                  </a>
+                  </td>
+                  <td>
+                  <div class="topic">কুরআনের শেষ ১০ সূরা</div>
+                  </td>
+                  <td>
+                  <details>
+                  <summary>>> Overview <<</summary>
+                  <div class="details-content"> From Sura Fill to Sura Nas
+                  </div>
+                  </details>
+                  </td>
+                  <!-- <td>
+                  <a  class="resource-btn">pdf</a>
+                  </td> -->
+                  </tr>
+
+            <!-- <tr>
+            <td><button class="sl-btn">15</button></td>
+            <td>
+              <div class="topic">নুন সাকিন ও তানবীনের পর গুন্নাহ</div>
+            </td>
+            <td>
+              <details>
+                <summary>>> Overview <<</summary>
+                <div class="details-content">
+                  Build small projects to strengthen HTML, CSS, JavaScript, and React concepts.
+                </div>
+              </details>
+            </td>
+            <td><a href="#" class="resource-btn">pdf </a></td>
+          </tr> -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
