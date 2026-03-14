@@ -2,4 +2,4 @@
 
 <!-- Visit my webpage : [HERE](https://nightwatchman17.github.io/towards-the-quran/) -->
 
-<a href="https://nightwatchman17.github.io/towards-the-quran/" target="_blank">🌐 Visit here...</a>
+<i><a href="https://nightwatchman17.github.io/towards-the-quran/" target="_blank">🌐 Visit here...</a></i>
