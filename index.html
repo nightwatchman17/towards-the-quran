@@ -1,382 +1,221 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content="Learn Quran recitation basics step by step.">
- <!-- <title>&#8203;</title> -->
-    <!-- <link rel="icon" type="image/png" sizes="32x32" href="Photos/favicon-32x32.png" />
-   
-     <title> Quran Learning </title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />-->
+<head>
+  <meta charset="UTF-8">
 
-<link rel="icon" type="image/png" sizes="32x32" href="Photos/favicon-32x32.png"> 
-<title>Quran Learning</title>
+  <meta name="description" content="Learn Quran recitation basics step by step.">
 
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600&display=swap" rel="stylesheet">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <style>
-      body {
-        font-family: "Noto Sans Bengali", sans-serif;
-      }
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
+  <link rel="icon" type="image/png" sizes="32x32" href="Photos/favicon-32x32.png">
 
-      body {
-        font-family: Arial, sans-serif;
-        background: linear-gradient(135deg, #070d1f, #441616);
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 24px;
-        color: #1f2937;
-      }
+  <meta property="og:title" content="Quran Learning">
+  <meta property="og:description" content="Learn Quran recitation basics step by step.">
+  <meta property="og:url" content="https://nightwatchman17.github.io/towards-the-quran/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://nightwatchman17.github.io/towards-the-quran/Photos/preview.png">
 
-      .container {
-        width: 100%;
-        max-width: 1100px;
-        background: #f3eeee;
-        border-radius: 18px;
-        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-        padding: 28px;
-      }
+  <title>Quran Learning</title>
 
-      .header {
-        text-align: center;
-        margin-bottom: 24px;
-      }
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600&display=swap"
+    rel="stylesheet"
+  >
 
-      .header h1 {
-        font-size: 32px;
-        margin-bottom: 8px;
-        color: #111827;
-      }
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-      .header p {
-        color: #6b7280;
-        font-size: 15px;
-      }
+  <style>
 
-      .table-wrapper {
-        width: 100%;
-        overflow-x: auto;
-        border-radius: 14px;
-        border: 1px solid #e5ebea;
-      }
-/* 
-      table {
-        width: 100%;
-        min-width: 760px;
-        background: #e2e2e2;
-      } */
+    body {
+      font-family: "Noto Sans Bengali", sans-serif;
+    }
 
-      table {
-          width: 100%;
-          background: #e2e2e2;
-          table-layout: fixed;
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-      th:nth-child(1) {
-        width: 8%;
-      } /* SL. column */
-      th:nth-child(2) {
-        width: 30%;
-      } /* Topic column */
-      th:nth-child(3) {
-        width: 45%;
-      } /* Details column */
-      th:nth-child(4) {
-        width: 17%;
-      }
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #070d1f, #441616);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      color: #1f2937;
+    }
 
-      thead {
-        background: #704a08;
-        color: #ffffff;
-      }
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      background: #f3eeee;
+      border-radius: 18px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+      padding: 28px;
+    }
 
-      th,
-      td {
-        padding: 16px 14px;
-        text-align: center;
-        vertical-align: top;
-      }
+    .header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
 
-      /* keep second column (topic) left-aligned */
-      th:nth-child(2),
-      td:nth-child(2) {
-        text-align: left;
-      }
+    .header h1 {
+      font-size: 32px;
+      margin-bottom: 8px;
+      color: #111827;
+    }
 
-      th {
-        font-size: 14px;
-        font-weight: 700;
-        letter-spacing: 0.2px;
-        border-bottom: 1px solid #e5e7eb;
-      }
+    .header p {
+      color: #6b7280;
+      font-size: 15px;
+    }
 
-      td {
-        font-size: 14px;
-        color: #374151;
-      }
+    .table-wrapper {
+      width: 100%;
+      overflow-x: auto;
+      border-radius: 14px;
+      border: 1px solid #e5ebea;
+    }
 
-      /* tbody tr:nth-child(even) {
-      background: #f9fafb;
-    } */
+    table {
+      width: 100%;
+      background: #e2e2e2;
+      table-layout: fixed;
+    }
 
-      tbody tr:hover {
-        background: #bbb9b9;
-        transition: 0.2s ease;
-      }
+    th:nth-child(1) { width: 8%; }
+    th:nth-child(2) { width: 30%; }
+    th:nth-child(3) { width: 45%; }
+    th:nth-child(4) { width: 17%; }
 
-      .topic {
-        font-weight: 600;
-        color: #111827;
-      }
+    thead {
+      background: #704a08;
+      color: #ffffff;
+    }
 
-      details {
-        background: #f8fafc;
-        border: 0.5px solid #dbeafe;
-        border-radius: 40px;
-        padding: 10px 10px;
-      }
+    th, td {
+      padding: 16px 14px;
+      text-align: center;
+      vertical-align: top;
+    }
 
-      summary {
-        cursor: pointer;
-        font-weight: 600;
-        color: #3b7009;
-        list-style: none;
-      }
+    th:nth-child(2),
+    td:nth-child(2) {
+      text-align: left;
+    }
 
-      summary:hover {
-        color: rgba(0, 0, 0, 0.735);
-      }
+    th {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      border-bottom: 1px solid #e5e7eb;
+    }
 
-      summary::-webkit-details-marker {
-        display: none;
-      }
+    td {
+      font-size: 14px;
+      color: #374151;
+    }
 
-      .details-content {
-        margin-top: 10px;
-        color: #000000;
-        line-height: 1.6;
-        font-size: 13px;
-      }
+    tbody tr:hover {
+      background: #bbb9b9;
+      transition: 0.2s ease;
+    }
 
-      .resource-btn {
-        display: inline-block;
-        text-decoration: none;
-        background: #3b7009;
-        color: #ffffff;
-        padding: 10px 16px;
-        border-radius: 10px;
-        font-size: 13px;
-        font-weight: 600;
-        transition:
-          background 0.2s ease,
-          transform 0.2s ease;
-        align-items: center;
-      }
+    .topic {
+      font-weight: 600;
+      color: #111827;
+    }
 
-      .resource-btn:hover {
-        background: #121f41;
-        transform: translateY(-1px);
-      }
+    details {
+      background: #f8fafc;
+      border: 0.5px solid #dbeafe;
+      border-radius: 40px;
+      padding: 10px 10px;
+    }
 
-      .resource-btn::before {
-        content: "📄 ";
-      }
-      .sl-btn::before {
-           content: "▶ ";
-          }
+    summary {
+      cursor: pointer;
+      font-weight: 600;
+      color: #3b7009;
+      list-style: none;
+    }
 
-      .sl-btn {
-        background: #3b7009;
-        color: #ffffff;
-        border: none;
-        padding: 8px 12px;
-        border-radius: 6px;
-        font-size: 13px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: background 0.2s ease;
-      }
+    summary:hover {
+      color: rgba(0,0,0,0.735);
+    }
 
-      .sl-btn:hover {
-        background: #121f41;
-        transform: translateY(1px);
-      }
+    summary::-webkit-details-marker {
+      display: none;
+    }
 
-      /* .resource-btn.disabled {
-      background: #9ca3af;
-      pointer-events: none;
-      cursor: not-allowed;
-    } */
+    .details-content {
+      margin-top: 10px;
+      color: #000000;
+      line-height: 1.6;
+      font-size: 13px;
+    }
 
-      /* @media (max-width: 768px) {
-        .container {
-          padding: 18px;
-          border-radius: 14px;
-        }
+    .resource-btn {
+      display: inline-block;
+      text-decoration: none;
+      background: #3b7009;
+      color: #ffffff;
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      transition: background 0.2s ease, transform 0.2s ease;
+      align-items: center;
+    }
 
-        .header h1 {
-          font-size: 24px;
-        }
+    .resource-btn:hover {
+      background: #121f41;
+      transform: translateY(-1px);
+    }
 
-        .header p {
-          font-size: 14px;
-        }
+    .resource-btn::before {
+      content: "📄 ";
+    }
 
-        th,
-        td {
-          padding: 12px 10px;
-        }
+    .sl-btn::before {
+      content: "▶ ";
+    }
 
-        table {
-          min-width: 680px;
-        }
-      }
+    .sl-btn {
+      background: #3b7009;
+      color: #ffffff;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
 
-      @media (max-width: 480px) {
-        body {
-          padding: 12px;
-        }
+    .sl-btn:hover {
+      background: #121f41;
+      transform: translateY(1px);
+    }
 
-        .container {
-          padding: 14px;
-        }
+  </style>
+</head>
 
-        .header h1 {
-          font-size: 22px;
-        }
+<body>
 
-        .header p {
-          font-size: 13px;
-        }
-      } */
+<div class="container">
 
+  <div class="header">
+    <h1>Quranic Speedrun</h1>
+    <p>
+      Learn the very basics to start recitation of the Quran <br>
+      (Collected from <i>Tahzib Institute</i>)
+    </p>
+  </div>
 
-@media (max-width: 768px) {
-  .container {
-    padding: 12px;
-    border-radius: 14px;
-  }
+  <div class="table-wrapper">
 
-  .header h1 {
-    font-size: 22px;
-  }
-
-  .header p {
-    font-size: 13px;
-  }
-
-  .table-wrapper {
-    overflow-x: hidden;
-  }
-
-  table {
-    width: 100%;
-    table-layout: fixed;
-  }
-
-  th:nth-child(1),
-  td:nth-child(1) {
-    width: 12%;
-  }
-
-  th:nth-child(2),
-  td:nth-child(2) {
-    width: 30%;
-  }
-
-  th:nth-child(3),
-  td:nth-child(3) {
-    width: 40%;
-  }
-
-  th:nth-child(4),
-  td:nth-child(4) {
-    width: 18%;
-  }
-
-  th,
-  td {
-    padding: 6px 4px;
-    font-size: 10px;
-    overflow-wrap: break-word;
-    word-break: normal;
-  }
-
-  th {
-    font-size: 10px;
-    line-height: 1.2;
-    white-space: normal;
-  }
-
-  .topic {
-    font-size: 10px;
-    line-height: 1.3;
-  }
-
-  details {
-    padding: 5px 6px;
-    border-radius: 12px;
-  }
-
-  summary {
-    font-size: 10px;
-    line-height: 1.2;
-  }
-
-  .details-content {
-    font-size: 9px;
-    line-height: 1.35;
-  }
-
-  .resource-btn {
-    display: inline-block;
-    max-width: 100%;
-    padding: 5px 6px;
-    font-size: 9px;
-    border-radius: 7px;
-    white-space: nowrap;
-  }
-
-  /* .resource-btn::before {
-    content: "";
-  } */
-
-  .sl-btn {
-    display: inline-block;
-    width: 100%;
-    max-width: 32px;
-    padding: 5px 0;
-    font-size: 10px;
-    border-radius: 5px;
-    line-height: 1.1;
-  }
-}
-
-
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="header">
-        <h1>Quranic Speedrun</h1>
-        <p>Learn the very basics to start recitation of the Quran <br>
-          (Collected from <i>Tahzib Institute</i>)</p>
-      </div>
-
-                  <div class="table-wrapper">
-                  <table>
+      <table>
                   <thead>
 
                   <tr>
@@ -727,22 +566,33 @@
           </tbody>
         </table>
 
+  </div>
 
+  <br><br><br>
 
-      </div> 
-    
-      <br> <br> <br>
-      <div style="align-items: center; justify-content: center; display: flex; background-color: bisque;">
-      <a href="https://drive.google.com/file/d/1q8Sew_xkHWmXmzk3kmEYHYgVLRgWKhY6/preview" target="_blank" class="resource-btn">View Full Qayda</a>
-      </div> 
-      <div>
-      <br> 
-      <div style="align-items: center; justify-content: center; display: flex; background-color: bisque;">
-      <a href="https://drive.google.com/file/d/1Gh-gdd5JaGZCF6JQkQkS5ZJpyJXwhZAW/preview" target="_blank" class="resource-btn">Makhraz</a>
-      </div> 
-    
-    </div>
+  <div style="display:flex;justify-content:center;background-color:bisque;">
+    <a
+      href="https://drive.google.com/file/d/1q8Sew_xkHWmXmzk3kmEYHYgVLRgWKhY6/preview"
+      target="_blank"
+      class="resource-btn"
+    >
+      View Full Qayda
+    </a>
+  </div>
 
-    
-  </body>
+  <br>
+
+  <div style="display:flex;justify-content:center;background-color:bisque;">
+    <a
+      href="https://drive.google.com/file/d/1Gh-gdd5JaGZCF6JQkQkS5ZJpyJXwhZAW/preview"
+      target="_blank"
+      class="resource-btn"
+    >
+      Makhraz
+    </a>
+  </div>
+
+</div>
+
+</body>
 </html>
